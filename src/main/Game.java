@@ -65,7 +65,7 @@ public class Game implements Runnable{
         player.render(g);
         objectManager.draw(g);
         enemyManager.draw(g);
-        drawDeltaWaveTime(g);
+        //drawDeltaWaveTime(g);
         if(gameOver) {
             gameOverOverlay.draw(g);
         }

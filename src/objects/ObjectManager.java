@@ -21,6 +21,11 @@ public class ObjectManager {
     private static int xShootOffset = 50;
     //private int ballcpt = 0;
     //private boolean last_removed = false;
+    private static boolean ready = true;
+    private static double deltaShoot = 0;
+    private static long previousTime = 0;
+    private static double timePerShoot = 50;
+
     public ObjectManager(Game game) {
         this.game = game;
         loadImgs();
@@ -56,7 +61,19 @@ public class ObjectManager {
     }
 
     public static void shootRomain(Player player) {
-        projectiles.add(new Projectile((int)(player.getHitbox().x + xShootOffset),(int)player.getHitbox().y, 1)); 
+        // long currentTime = System.currentTimeMillis();
+        // deltaShoot += (currentTime - previousTime)/timePerShoot;
+        // previousTime = currentTime;
+        // if (ready) {
+        projectiles.add(new Projectile((int)(player.getHitbox().x + xShootOffset),(int)player.getHitbox().y, 1));
+        //     ready = false;
+        //     deltaShoot = 0;
+        //     previousTime = System.currentTimeMillis();
+        // }
+        // if (!ready && deltaShoot >= 1) {
+        //     ready = true;            
+        // }
+        
     }
 
     private void loadImgs() {
