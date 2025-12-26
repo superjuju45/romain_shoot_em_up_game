@@ -73,7 +73,6 @@ public class Game implements Runnable{
     }
 
     public void resetAll() {
-        //TODO: reset player, enemy, etc
         gameOver = false;
         player.resetAll();
         enemyManager.resetAllEnemies();

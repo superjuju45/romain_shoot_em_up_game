@@ -21,7 +21,7 @@ import static entities.NinjaBird.birdspeed;
 
 public class LoadSave {
     //private BufferedImage img;
-    private static final String source = "C:/Users/Julien D/Documents/Entrainement&formation_boulot/Exos_projets_java/Romain_video_game/Videogame2_v1.1/src/res/";
+    private static final String source = "C:/Users/Julien D/Documents/Entrainement_formation_boulot/Exos_projets_java/Romain_video_game/Videogame2_v1.3/src/res/";
     public static final String BACK_GROUND = "terrain_de_tennis_bckgrnd.png";
     public static final String ROMAIN = "Romain_sprite_without_bg.png";
     public static final String TENNIS_BALL = "balle_tennis_without_bg.png";
