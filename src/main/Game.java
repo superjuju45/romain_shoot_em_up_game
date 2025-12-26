@@ -2,7 +2,6 @@ package main;
 
 import java.awt.Graphics;
 
-import entities.Enemy;
 import entities.EnemyManager;
 import entities.Player;
 import objects.ObjectManager;
@@ -10,10 +9,9 @@ import ui.GameOverOverlay;
 import ui.ScorePanel;
 import utilz.LoadSave;
 import static utilz.Constants.PlayerConstants.*;
-import static utilz.LoadSave.drawDeltaWaveTime;
 
 public class Game implements Runnable{
-    private GameWindow gameWindow; 
+    private GameWindow gameWindow;
     private GamePanel gamePanel; 
     private Thread gameThread;
     private final int FPS_SET = 120;
