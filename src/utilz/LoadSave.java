@@ -16,12 +16,14 @@ import javax.imageio.ImageIO;
 import entities.FlyingSaucer;
 import main.GamePanel;
 import utilz.Constants.EnemyConstants;
+import java.io.File;
 import static objects.ObjectManager.projectiles;
 import static entities.FlyingSaucer.saucerSpeed;
 
 public class LoadSave {
     //private BufferedImage img;
-    private static final String source = "C:/Users/Julien D/Documents/Entrainement_formation_boulot/Exos_projets_java/Romain_video_game/Videogame2_v1.3/src/res/";
+    private static final String currentFileName = System.getProperty("user.dir");
+    private static final String source = new File(currentFileName).getPath() + "/src/res/";
     public static final String BACK_GROUND = "space_bg.png";
     public static final String SPACESHIP = "spaceship_reverse_without_bg.png";
     public static final String MISSILE = "missile_fumee_without_bg.png";
