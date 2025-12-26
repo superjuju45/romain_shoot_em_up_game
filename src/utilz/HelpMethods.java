@@ -1,6 +1,6 @@
 package utilz;
 
-import static utilz.Constants.EnemyConstants.NINJA_BIRD;
+import static utilz.Constants.EnemyConstants.FLYING_SAUCER;
 import static utilz.Constants.WindowSize.*;
 
 import objects.Projectile;

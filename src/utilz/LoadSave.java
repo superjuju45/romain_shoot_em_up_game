@@ -1,8 +1,8 @@
 package utilz;
 
-import static utilz.Constants.EnemyConstants.NINJA_BIRD;
-import static utilz.Constants.EnemyConstants.NINJA_BIRD_X_SPAWN;
-import static utilz.Constants.EnemyConstants.NINJA_BIRD_Y_SPAWN;
+import static utilz.Constants.EnemyConstants.FLYING_SAUCER;
+import static utilz.Constants.EnemyConstants.FLYING_SAUCER_X_SPAWN;
+import static utilz.Constants.EnemyConstants.FLYING_SAUCER_Y_SPAWN;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -13,24 +13,24 @@ import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
 
-import entities.NinjaBird;
+import entities.FlyingSaucer;
 import main.GamePanel;
 import utilz.Constants.EnemyConstants;
 import static objects.ObjectManager.projectiles;
-import static entities.NinjaBird.birdspeed;
+import static entities.FlyingSaucer.saucerSpeed;
 
 public class LoadSave {
     //private BufferedImage img;
     private static final String source = "C:/Users/Julien D/Documents/Entrainement_formation_boulot/Exos_projets_java/Romain_video_game/Videogame2_v1.3/src/res/";
     public static final String BACK_GROUND = "space_bg.png";
-    public static final String ROMAIN = "spaceship_reverse_without_bg.png";
-    public static final String TENNIS_BALL = "missile_fumee_without_bg.png";
-    public static final String NINJA_BIRD = "soucoupe_without_bg.png";
+    public static final String SPACESHIP = "spaceship_reverse_without_bg.png";
+    public static final String MISSILE = "missile_fumee_without_bg.png";
+    public static final String FLYING_SAUCER = "soucoupe_without_bg.png";
     public static final String STATUS_BAR = "health_power_bar.png";
 
     //variables statiques temporelles
-    private static ArrayList<NinjaBird> list = new ArrayList<>();
-    private static int[] birdspawns = {125, 250, 375, 500, 90, 177, 302, 437};
+    private static ArrayList<FlyingSaucer> list = new ArrayList<>();
+    private static int[] saucerspawns = {125, 250, 375, 500, 90, 177, 302, 437};
     private static int cpt = 0;
     private static long previousTime = System.currentTimeMillis();
     private static double deltaTime = 0;
@@ -46,7 +46,7 @@ public class LoadSave {
 
     static double deltaU = 0;
     static double deltaF = 0;
-    static double deltabird = 0;
+    static double deltasaucer = 0;
 
     static GamePanel gamePanel;
 
@@ -61,7 +61,7 @@ public class LoadSave {
         }
     }
 
-    public static ArrayList<NinjaBird> GetBirds() {
+    public static ArrayList<FlyingSaucer> GetSaucers() {
 
         BufferedImage img = GetSpriteAtlas(BACK_GROUND);
         long currentTime = System.currentTimeMillis();
@@ -83,13 +83,13 @@ public class LoadSave {
                     previousTime = currentTime;
                     list.clear();
                     projectiles.clear();
-                    birdspeed *= 1.2;
+                    saucerSpeed *= 1.2;
                     spawnTime *= 0.93;
                     deltaWaveTime = 0;
                 }
                 
             } else {
-                list.add(new NinjaBird(NINJA_BIRD_X_SPAWN, birdspawns[cpt]));
+                list.add(new FlyingSaucer(FLYING_SAUCER_X_SPAWN, saucerspawns[cpt]));
             }
         }
         return list;

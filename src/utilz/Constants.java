@@ -21,18 +21,18 @@ public class Constants {
     }   
 
     public static class EnemyConstants {
-        public static final int NINJA_BIRD = 0;
-        public static final int NINJA_BIRD_WIDTH_DEFAULT = 100;
-        public static final int NINJA_BIRD_HEIGHT_DEFAULT = 100;
-        public static final int NINJA_BIRD_X_SPAWN = 1000;
-        public static final int NINJA_BIRD_Y_SPAWN = 100;
+        public static final int FLYING_SAUCER = 0;
+        public static final int FLYING_SAUCER_WIDTH_DEFAULT = 100;
+        public static final int FLYING_SAUCER_HEIGHT_DEFAULT = 100;
+        public static final int FLYING_SAUCER_X_SPAWN = 1000;
+        public static final int FLYING_SAUCER_Y_SPAWN = 100;
 
-        public static final int NINJA_BIRD_DRAW_OFFSET_X = 10;
-        public static final int NINJA_BIRD_DRAW_OFFSET_Y = 10;
+        public static final int FLYING_SAUCER_DRAW_OFFSET_X = 10;
+        public static final int FLYING_SAUCER_DRAW_OFFSET_Y = 10;
 
         public static int GetMaxHealth(int enemy_type) {
             switch(enemy_type) {
-                case NINJA_BIRD:
+                case FLYING_SAUCER:
                     return 60;
                 default:
                     return 50;
@@ -41,7 +41,7 @@ public class Constants {
 
         public static int GetEnemyDmg(int enemy_type) {
             switch(enemy_type) {
-                case NINJA_BIRD:
+                case FLYING_SAUCER:
                     return 25;
                 default:
                     return 0;

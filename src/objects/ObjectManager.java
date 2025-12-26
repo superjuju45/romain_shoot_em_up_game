@@ -5,7 +5,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 import entities.EnemyManager;
-import entities.NinjaBird;
+import entities.FlyingSaucer;
 import entities.Player;
 import main.Game;
 import utilz.LoadSave;
@@ -30,7 +30,7 @@ public class ObjectManager {
         for(Projectile p : projectiles) {
             if(p.isActive()) {
                 p.updatePos();
-                for(NinjaBird b : enemyManager.birds) {
+                for(FlyingSaucer b : enemyManager.flyingSaucers) {
                     if(p.getHitbox().intersects(b.getHitbox())) {
                         if(b.isActive()) {
                             b.hurt(30);
@@ -45,12 +45,12 @@ public class ObjectManager {
         }
     }
 
-    public static void shootRomain(Player player) {
+    public static void shootShip(Player player) {
         projectiles.add(new Projectile((int)(player.getHitbox().x + xShootOffset),(int)player.getHitbox().y, 1));
     }
 
     private void loadImgs() {
-        tennisBallImg = LoadSave.GetSpriteAtlas(LoadSave.TENNIS_BALL);
+        tennisBallImg = LoadSave.GetSpriteAtlas(LoadSave.MISSILE);
     }
 
     public void draw(Graphics g) {

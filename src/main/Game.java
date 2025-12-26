@@ -12,11 +12,9 @@ import utilz.LoadSave;
 import static utilz.Constants.PlayerConstants.*;
 import static utilz.LoadSave.drawDeltaWaveTime;
 
-//import main.GameWindow;
-
 public class Game implements Runnable{
-    private GameWindow gameWindow; //private
-    private GamePanel gamePanel; //private
+    private GameWindow gameWindow; 
+    private GamePanel gamePanel; 
     private Thread gameThread;
     private final int FPS_SET = 120;
     private final int UPS_SET = 200;
@@ -84,7 +82,7 @@ public class Game implements Runnable{
 
         double timePerFrame = 1000000000.0 / FPS_SET ;
         double timePerUpdate = 1000000000.0/UPS_SET;
-        double timePerBird = 500000000.0;
+        double timePerSaucer = 500000000.0;
 
         long previousTime = System.nanoTime();
 
@@ -94,7 +92,7 @@ public class Game implements Runnable{
 
         double deltaU = 0;
         double deltaF = 0;
-        double deltabird = 0;
+        double deltasaucer = 0;
 
         while(true) {
 
@@ -102,7 +100,7 @@ public class Game implements Runnable{
 
             deltaU += (currentTime - previousTime) / timePerUpdate;
             deltaF += (currentTime - previousTime) / timePerFrame;
-            deltabird += (currentTime - previousTime) / timePerBird;
+            deltasaucer += (currentTime - previousTime) / timePerSaucer;
             previousTime = currentTime;
 
             if(deltaU >= 1) {
@@ -117,9 +115,9 @@ public class Game implements Runnable{
                 deltaF --;
             }
 
-            if(deltabird >= 1) {
-                enemyManager.birds = LoadSave.GetBirds();
-                deltabird--;
+            if(deltasaucer >= 1) {
+                enemyManager.flyingSaucers = LoadSave.GetSaucers();
+                deltasaucer--;
             }
 
             if(System.currentTimeMillis() - lastCheck >= 1000) {

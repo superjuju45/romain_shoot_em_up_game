@@ -20,8 +20,8 @@ import static utilz.HelpMethods.CanMoveHere;
 public class Player extends Entity {
     GamePanel gp;
     KeyboardInputs keyboardInputs;
-    //private BufferedImage img; //Image de Romain en scooter
-    private BufferedImage img = utilz.LoadSave.GetSpriteAtlas(utilz.LoadSave.ROMAIN);
+    //private BufferedImage img; //Image de vaisseau spatial
+    private BufferedImage img = utilz.LoadSave.GetSpriteAtlas(utilz.LoadSave.SPACESHIP);
     //private int playerDir = -1;
     private boolean moving = false;
     public int perso_speed = 5;
@@ -161,7 +161,7 @@ public class Player extends Entity {
     }
 
     public void shoot() {
-        objects.ObjectManager.shootRomain(this);
+        objects.ObjectManager.shootShip(this);
     }
 
     public void resetAll() {

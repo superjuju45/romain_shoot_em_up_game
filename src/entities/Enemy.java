@@ -2,9 +2,6 @@ package entities;
 
 import static utilz.Constants.EnemyConstants.*;
 
-import java.awt.geom.Rectangle2D;
-import java.util.GregorianCalendar;
-
 import static utilz.Constants.PlayerConstants.SCORE;
 
 public abstract class Enemy extends Entity {

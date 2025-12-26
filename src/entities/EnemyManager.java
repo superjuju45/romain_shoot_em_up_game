@@ -13,10 +13,10 @@ import utilz.LoadSave;
 public class EnemyManager {
 
     private Game game;
-    private BufferedImage birdImage;
-    public static ArrayList<NinjaBird> birds = new ArrayList<>();
-    private float xBirdOffset = 0;
-    private float yBirdOffset = 35;
+    private BufferedImage flyingSaucerImage;
+    public static ArrayList<FlyingSaucer> flyingSaucers = new ArrayList<>();
+    private float xFlyingSaucerOffset = 0;
+    private float yFlyingSaucerOffset = 35;
 
     public EnemyManager(Game game){
         this.game = game;
@@ -24,12 +24,12 @@ public class EnemyManager {
     }
 
     public void addEnemies() {
-        birds = LoadSave.GetBirds();
-        System.out.println("size of birds:" + birds.size());
+        flyingSaucers = LoadSave.GetSaucers();
+        System.out.println("size of flyingSaucers:" + flyingSaucers.size());
     }
 
     public void update(Player player) {
-        for (NinjaBird b : birds) {
+        for (FlyingSaucer b : flyingSaucers) {
             if(b.isActive()) {
                 b.update(player);
             }
@@ -40,14 +40,14 @@ public class EnemyManager {
     }
 
     public void draw(Graphics g) {
-        drawBirds(g);
+        drawSaucers(g);
     }
 
-    private void drawBirds(Graphics g) {
-        for (NinjaBird b : birds) {
+    private void drawSaucers(Graphics g) {
+        for (FlyingSaucer b : flyingSaucers) {
             if(b.isActive()) {
-                BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.NINJA_BIRD);
-                g.drawImage(temp, (int)(b.getHitbox().x - xBirdOffset), (int)(b.getHitbox().y - yBirdOffset), NINJA_BIRD_WIDTH_DEFAULT, NINJA_BIRD_HEIGHT_DEFAULT, null);
+                BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.FLYING_SAUCER);
+                g.drawImage(temp, (int)(b.getHitbox().x - xFlyingSaucerOffset), (int)(b.getHitbox().y - yFlyingSaucerOffset), FLYING_SAUCER_WIDTH_DEFAULT, FLYING_SAUCER_HEIGHT_DEFAULT, null);
                 //b.drawHitbox(g);
                 //b.drawAttackBox(g);
             }
@@ -55,6 +55,6 @@ public class EnemyManager {
     }
 
     public void resetAllEnemies() {
-       birds.clear();
+       flyingSaucers.clear();
     }
 }
