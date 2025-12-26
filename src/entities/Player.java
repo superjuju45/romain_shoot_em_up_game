@@ -82,25 +82,6 @@ public class Player extends Entity {
         drawUI(g);
     }
 
-    // private void importImg() {
-    //     //InputStream is = getClass().getResourceAsStream("C:/Users/Julien D/Documents/Entrainement&formation_boulot/Exos_projets_java/Romain_video_game/Videogame2_v1/src/res/Romain_sprite_without_bg.png");
-    //     //InputStream is = getClass().getResourceAsStream("/Romain_sprite_without_bg.png");
-    //     try {
-    //         img = ImageIO.read(new FileInputStream("C:/Users/Julien D/Documents/Entrainement&formation_boulot/Exos_projets_java/Romain_video_game/Videogame2_v1.1/src/res/Romain_sprite_without_bg.png"));
-    //     } catch (IOException e) {
-    //         e.printStackTrace();
-    //     } 
-    // }
-
-    // public void setDirection(int direction) {
-    //     this.playerDir = direction ;
-    //     moving = true;
-    // }
-
-    // public void setMoving(boolean moving) {
-    //     this.moving = moving;
-    // }
-
     private void drawUI(Graphics g) {
         g.drawImage(statusBarImg, statusBarX, statusBarY, statusBarWidth, statusBarHeight, null);
         g.setColor(Color.red);
@@ -108,51 +89,21 @@ public class Player extends Entity {
     }
 
     private void updatePos() {
-        // if(moving) {
-        //     switch(playerDir) {
-        //         case LEFT:
-        //             x -= perso_speed;
-        //             break;
-        //         case UP:
-        //             y -= perso_speed;
-        //             break;
-        //         case RIGHT:
-        //             x += perso_speed;
-        //             break;
-        //         case DOWN:
-        //             y += perso_speed;
-        //             break;
-        //     }
-        // }
-        
         moving = false;
-        // if (!left && !right && !up && !down) {
-        //     return;
-        // }
-
         float xSpeed = 0, ySpeed = 0;
 
         if (left && !right) {
             xSpeed = -perso_speed;
-            // x-= perso_speed;
-            // moving = true;
         } else if (right && !left) {
             xSpeed = perso_speed;
-            // x+= perso_speed;
-            // moving = true;
         } 
 
         if (up && !down) {
-            ySpeed = -perso_speed;
-            // y -= perso_speed;
-            // moving = true;    
+            ySpeed = -perso_speed; 
         } else if (down && !up) {
             ySpeed = perso_speed;
-            // y += perso_speed;
-            // moving = true;
         }
 
-        //System.out.println(CanMoveHere(hitbox.x + xSpeed, hitbox.y + ySpeed, (int)hitbox.width, (int)hitbox.height)); //Mouchard
         if (CanMoveHere(hitbox.x + xSpeed, hitbox.y + ySpeed, (int)hitbox.width, (int)hitbox.height)) {
             this.x += xSpeed;
             this.y += ySpeed;
@@ -165,7 +116,6 @@ public class Player extends Entity {
 
         if (currentHealth <= 0) {
             currentHealth = 0;
-            //gameOver();
         } else if (currentHealth >= maxHealth) {
             currentHealth = maxHealth;
         }

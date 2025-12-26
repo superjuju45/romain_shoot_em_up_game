@@ -64,17 +64,6 @@ public class LoadSave {
     public static ArrayList<NinjaBird> GetBirds() {
 
         BufferedImage img = GetSpriteAtlas(BACK_GROUND);
-        // for (int j = 0; j < img.getHeight(); j++){
-        //     for (int i = 0; i < img.getWidth() ; i++) {
-        //         Color color = new Color(img.getRGB(i,j));
-        //         int value = color.getGreen();
-        //         if (value == EnemyConstants.NINJA_BIRD) {
-        //             list.add(new NinjaBird(NINJA_BIRD_X_SPAWN, NINJA_BIRD_Y_SPAWN)); //endroit d'où spawn les oiseaux
-        //             //point améliorable par la suite
-        //         }
-        //     }
-        // }
-        //list.add(new NinjaBird(NINJA_BIRD_X_SPAWN, NINJA_BIRD_Y_SPAWN));*
         long currentTime = System.currentTimeMillis();
         deltaTime += (currentTime - previousTime) / spawnTime;
         deltaWaveTime += (currentTime - previousTime) / waveTime;
@@ -89,18 +78,6 @@ public class LoadSave {
 
             if (deltaWaveTime >= 1) {
                 deltaInterWaveTime += deltaInterWaveTime_int;
-                //previousTime = currentTime;
-                //currentTime = System.currentTimeMillis();
-                
-                // while (deltaInterWaveTime <= 1) {
-                // previousTime = currentTime;
-                // currentTime = System.currentTimeMillis();
-                // deltaInterWaveTime += (currentTime - previousTime)/interWaveTime;
-                    
-                // }
-                    //régler le problème du freeze
-                    //tenter la méthode basique du double if 🙃
-                    // aussi penser au spam tir => crash
                 if (deltaInterWaveTime >= 1) {
                     deltaInterWaveTime = 0;
                     previousTime = currentTime;
@@ -114,7 +91,6 @@ public class LoadSave {
             } else {
                 list.add(new NinjaBird(NINJA_BIRD_X_SPAWN, birdspawns[cpt]));
             }
-            
         }
         return list;
     }

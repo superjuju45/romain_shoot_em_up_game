@@ -20,7 +20,6 @@ public class EnemyManager {
 
     public EnemyManager(Game game){
         this.game = game;
-        //loadEnemyImgs();
         addEnemies();
     }
 
@@ -54,16 +53,6 @@ public class EnemyManager {
             }
         }
     }
-
-    // public void checkEnemyHit(Rectangle2D.Float attackBox) {
-    //     for(NinjaBird b : birds) {
-    //         if(attackBox.intersetcts(b.))
-    //     }
-    // }
-
-    // private void loadEnemyImgs() {
-    //     BufferedImage temp = LoadSave.GetSpriteAtlas(LoadSave.NINJA_BIRD);
-    // }
 
     public void resetAllEnemies() {
        birds.clear();

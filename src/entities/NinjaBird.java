@@ -49,6 +49,7 @@ public class NinjaBird extends Enemy {
     }
 
     public void drawAttackBox(Graphics g) {
+        //To debug the attack box
         g.setColor(Color.red);
         g.drawRect((int)attackBox.x, (int)attackBox.y, (int)attackBox.width, (int)attackBox.height);
     }

@@ -27,8 +27,6 @@ public class Projectile {
 
     public void updatePos() {
         hitbox.x += dir*ball_speed; 
-        // System.out.println("update_done"); //Mouchard
-        //System.out.println(getHitbox());
     }
 
     public void setPos(int x, int y) {
@@ -37,7 +35,6 @@ public class Projectile {
     }
 
     public Rectangle2D.Float getHitbox() {
-        //System.out.println("update_done"); //Mouchard
         return hitbox;
     }
 

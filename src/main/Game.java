@@ -36,8 +36,6 @@ public class Game implements Runnable{
         gamePanel.setFocusable(true);
         gamePanel.requestFocus();
 
-      
-        //enemyManager.addEnemies();
         startGameLoop();
     }
 
@@ -58,14 +56,12 @@ public class Game implements Runnable{
         player.update();
         objectManager.update(enemyManager);
         enemyManager.update(player);
-        // System.out.println("update_done"); // Mouchard
     }
 
     public void render(Graphics g) {
         player.render(g);
         objectManager.draw(g);
         enemyManager.draw(g);
-        //drawDeltaWaveTime(g);
         if(gameOver) {
             gameOverOverlay.draw(g);
         }
@@ -89,8 +85,6 @@ public class Game implements Runnable{
         double timePerFrame = 1000000000.0 / FPS_SET ;
         double timePerUpdate = 1000000000.0/UPS_SET;
         double timePerBird = 500000000.0;
-        // long lastFrame = System.nanoTime(); //précédente boucle de jeu
-        // long now = System.nanoTime(); //précédente boucle de jeu
 
         long previousTime = System.nanoTime();
 
@@ -104,7 +98,6 @@ public class Game implements Runnable{
 
         while(true) {
 
-            // now = System.nanoTime(); //précédente boucle de jeu
             long currentTime = System.nanoTime();
 
             deltaU += (currentTime - previousTime) / timePerUpdate;
@@ -120,7 +113,6 @@ public class Game implements Runnable{
 
             if(deltaF >= 1) {
                 gamePanel.repaint();
-                // lastFrame = now; lastFrame = now;
                 frames ++;
                 deltaF --;
             }
@@ -129,15 +121,6 @@ public class Game implements Runnable{
                 enemyManager.birds = LoadSave.GetBirds();
                 deltabird--;
             }
-
-            // if(now - lastFrame >= timePerFrame) { //précédente boucle de jeu
-
-            //     gamePanel.repaint(); //précédente boucle de jeu
-            //     lastFrame = now; lastFrame = now;
-            //     frames ++; //précédente boucle de jeu
-            // }
-
-            //fps counter
 
             if(System.currentTimeMillis() - lastCheck >= 1000) {
                 lastCheck = System.currentTimeMillis();
