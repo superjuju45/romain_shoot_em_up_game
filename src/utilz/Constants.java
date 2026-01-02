@@ -16,8 +16,6 @@ public class Constants {
     public static class PlayerConstants {
         public static final int PLAYER_X_SPAWN = 50;
         public static final int PLAYER_Y_SPAWN = 450;
-        
-        public static int SCORE = 0;
     }   
 
     public static class EnemyConstants {
@@ -29,6 +27,9 @@ public class Constants {
 
         public static final int FLYING_SAUCER_DRAW_OFFSET_X = 10;
         public static final int FLYING_SAUCER_DRAW_OFFSET_Y = 10;
+
+        public static final int ENEMY_HIT_SCORE = 10;
+        public static final int ENEMY_KILLED_SCORE = 20;
 
         public static int GetMaxHealth(int enemy_type) {
             switch(enemy_type) {

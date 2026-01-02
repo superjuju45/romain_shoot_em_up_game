@@ -6,9 +6,9 @@ import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
 public abstract class Entity {
-    protected float x, y;
-    protected int width, height;
-    protected Rectangle2D.Float hitbox;
+    private float x, y;
+    private int width, height;
+    private Rectangle2D.Float hitbox;
 
     public Entity(float x, float y, int width, int height) {
         this.x = x;
@@ -34,8 +34,45 @@ public abstract class Entity {
         hitbox.y = (int) y;
     }
 
+    protected float getX() {
+        return x;
+    }
+
+    protected void setX(float x) {
+        this.x = x;
+    }
+
+    protected float getY() {
+        return y;
+    }
+
+    protected void setY(float y) {
+        this.y = y;
+    }
+
+    protected int getWidth() {
+        return width;
+    }
+
+    protected void setWidth(int width) {
+        this.width = width;
+    }
+
+    protected int getHeight() {
+        return height;
+    }
+
+    protected void setHeight(int height) {
+        this.height = height;
+    }
+
     public Rectangle2D.Float getHitbox() {
         return hitbox;
+    }
+
+    public void setHitbox(float x, float y) {
+        hitbox.x = x;
+        hitbox.y = y;
     }
     
 }

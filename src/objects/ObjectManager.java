@@ -33,7 +33,7 @@ public class ObjectManager {
                 for(FlyingSaucer b : enemyManager.flyingSaucers) {
                     if(p.getHitbox().intersects(b.getHitbox())) {
                         if(b.isActive()) {
-                            b.hurt(30);
+                            b.takeDamage(30);
                             p.setActive(false);
                         }
                     } else if(IsProjectileHittingLevel(p)) {

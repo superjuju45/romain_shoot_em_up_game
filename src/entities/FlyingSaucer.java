@@ -21,7 +21,7 @@ public class FlyingSaucer extends Enemy {
     }   
 
     private void initAttackBox() {
-        attackBox = hitbox;
+        attackBox = getHitbox();
     }
 
     public void update(Player player) {
@@ -30,12 +30,12 @@ public class FlyingSaucer extends Enemy {
     }
     
     private void updateAttackBox() {
-        attackBox.x = hitbox.x;
-        attackBox.y = hitbox.y;
+        attackBox.x = getHitbox().x;
+        attackBox.y = getHitbox().y;
     }
 
     private void updateMove(Player player) {
-        hitbox.x += (-1)*saucerSpeed; // l'ennemi avance de droite à gauche!
+        getHitbox().x += (-1)*saucerSpeed; // l'ennemi avance de droite à gauche!
         checkEnemyHit(attackBox, player);
     }
 

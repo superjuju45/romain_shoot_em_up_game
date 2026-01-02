@@ -76,7 +76,7 @@ public class Player extends Entity {
     }
 
     public void render(Graphics g) {
-        g.drawImage(img, (int) (hitbox.x- xDrawOffset), (int) (hitbox.y - yDrawOffset),width, height, null);
+        g.drawImage(img, (int) (getHitbox().x- xDrawOffset), (int) (getHitbox().y - yDrawOffset),getWidth(), getHeight(), null);
         //drawHitbox(g);
 
         drawUI(g);
@@ -104,9 +104,9 @@ public class Player extends Entity {
             ySpeed = perso_speed;
         }
 
-        if (CanMoveHere(hitbox.x + xSpeed, hitbox.y + ySpeed, (int)hitbox.width, (int)hitbox.height)) {
-            this.x += xSpeed;
-            this.y += ySpeed;
+        if (CanMoveHere(getHitbox().x + xSpeed, getHitbox().y + ySpeed, (int)getHitbox().width, (int)getHitbox().height)) {
+            this.setX(getX() + xSpeed);
+            this.setY(getY() + ySpeed);
             moving = true;
         }
     }
@@ -169,8 +169,8 @@ public class Player extends Entity {
         moving = false;
         currentHealth = maxHealth;
 
-        this.x = PLAYER_X_SPAWN;
-        this.y = PLAYER_Y_SPAWN;
+        this.setX(PLAYER_X_SPAWN);
+        this.setY(PLAYER_Y_SPAWN);
     }
     
 }

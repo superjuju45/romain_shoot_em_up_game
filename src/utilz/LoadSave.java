@@ -3,6 +3,10 @@ package utilz;
 import static utilz.Constants.EnemyConstants.FLYING_SAUCER;
 import static utilz.Constants.EnemyConstants.FLYING_SAUCER_X_SPAWN;
 import static utilz.Constants.EnemyConstants.FLYING_SAUCER_Y_SPAWN;
+import static objects.ObjectManager.projectiles;
+import static entities.FlyingSaucer.saucerSpeed;
+import static utilz.Constants.EnemyConstants.ENEMY_HIT_SCORE;
+import static utilz.Constants.EnemyConstants.ENEMY_KILLED_SCORE;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,11 +18,12 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 
 import entities.FlyingSaucer;
+import entities.EnemyListeners.EnemyDeathListener;
+import entities.EnemyListeners.EnemyHitListener;
 import main.GamePanel;
 import utilz.Constants.EnemyConstants;
 import java.io.File;
-import static objects.ObjectManager.projectiles;
-import static entities.FlyingSaucer.saucerSpeed;
+import ui.Score;
 
 public class LoadSave {
     //private BufferedImage img;
@@ -45,6 +50,20 @@ public class LoadSave {
 
     private static final int FPS_SET = 120;
     private static final int UPS_SET = 200;
+
+    public static Score score;
+    private static EnemyHitListener enemyHitListener = new EnemyHitListener() {
+        @Override
+        public void action() {
+            score.add(ENEMY_HIT_SCORE);
+        }
+    };
+    private static EnemyDeathListener enemyKilledListener = new EnemyDeathListener() {
+        @Override
+        public void action() {
+            score.add(ENEMY_KILLED_SCORE);
+        }
+    };
 
     static double deltaU = 0;
     static double deltaF = 0;
@@ -91,7 +110,10 @@ public class LoadSave {
                 }
                 
             } else {
-                list.add(new FlyingSaucer(FLYING_SAUCER_X_SPAWN, saucerspawns[cpt]));
+                FlyingSaucer flyingSaucer = new FlyingSaucer(FLYING_SAUCER_X_SPAWN, saucerspawns[cpt]);
+                flyingSaucer.addEnemyHitListener(enemyHitListener);
+                flyingSaucer.addEnemyDeathListener(enemyKilledListener);
+                list.add(flyingSaucer);
             }
         }
         return list;
@@ -100,5 +122,9 @@ public class LoadSave {
     public static void drawDeltaWaveTime(Graphics g) {
         g.setColor(new Color(255, 0, 0));
         g.drawString(String.valueOf(deltaWaveTime), 50, 550);
+    }
+
+    public void setScore(Score score) {
+        LoadSave.score = score;
     }
 }

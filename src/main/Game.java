@@ -9,6 +9,7 @@ import ui.GameOverOverlay;
 import ui.ScorePanel;
 import utilz.LoadSave;
 import static utilz.Constants.PlayerConstants.*;
+import ui.Score;
 
 public class Game implements Runnable{
     private GameWindow gameWindow;
@@ -22,6 +23,7 @@ public class Game implements Runnable{
     private EnemyManager enemyManager;
     private static GameOverOverlay gameOverOverlay;
     private ScorePanel scorePanel;
+    private Score score;
 
     private static boolean gameOver;
 
@@ -40,7 +42,9 @@ public class Game implements Runnable{
         objectManager = new ObjectManager(this);
         enemyManager = new EnemyManager(this);
         gameOverOverlay = new GameOverOverlay(this);
-        scorePanel = new ScorePanel();
+        score = new Score();
+        LoadSave.score = score;
+        scorePanel = new ScorePanel(score);
     }
 
     private void startGameLoop() {
@@ -68,7 +72,7 @@ public class Game implements Runnable{
         gameOver = false;
         player.resetAll();
         enemyManager.resetAllEnemies();
-        ScorePanel.resetScore();
+        score.resetScore();
     }
 
     public void setGameOver(boolean gameOver) {
